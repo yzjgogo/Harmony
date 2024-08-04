@@ -1,5 +1,7 @@
 {
   "src": [
-    "pages/Index"
+    "pages/Index",
+    "pages/A0_ArkTS_base_zucheng",
+    "pages/A1_diy_component"
   ]
 }

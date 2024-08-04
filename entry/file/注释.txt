@@ -1,0 +1,14 @@
+ https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/arkts-custom-components-freeze-V5
+ @Component({ freezeWhenInactive: true })
+ struct MyComponent {
+ }
+
+  @Entry装饰的自定义组件将作为UI页面的入口。在单个UI页面中，最多可以使用@Entry装饰一个自定义组件。@Entry可以接受一个可选的LocalStorage的参数或者一个可选的EntryOptions参数。
+  在https://developer.huawei.com/consumer/cn/training/course/slightMooc/C101717496870909384里搜索@Entry了解更多
+
+   @Reusable：
+   @Reusable装饰的自定义组件具备可复用能力
+
+
+状态管理
+   https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/arkts-state-management-overview-V5
