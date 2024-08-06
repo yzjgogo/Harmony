@@ -18,6 +18,14 @@ struct Index {
         .onClick(()=>{
           router.pushUrl({url:'pages/A1_diy_component'})
         })
+      Button("页面和自定义组件的生命周期")
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A2_page_component_lifecycle'})
+        })
+      Button("自定义组件监听页面生命周期")
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A3_component_observer_Page'})
+        })
     }
   }
 }

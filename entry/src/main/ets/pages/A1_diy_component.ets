@@ -1,6 +1,8 @@
 /**
  https://developer.huawei.com/consumer/cn/training/course/slightMooc/C101717496870909384
+ 涉及的内容：
  创建自定义组件
+
  参考：HelloComponent
  其实A1_diy_component也是一个和HelloComponent完全一样的自定义组件，只是A1_diy_component
  被@Entry修饰，成为了页面入口组件，我们完全可以给HelloComponent添加@Entry修饰，让其也是一个页面
