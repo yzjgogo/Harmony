@@ -4,6 +4,10 @@
  循环渲染 -> 使用场景 -> 数据源数组项发生变化
 
  这里的 数据源数组项发生变化，是相对于A4_ForEach_2.ets来说的
+
+
+ 1：当列表滚动到底部时，如果手势向上滑动距离超过指定的80，将触发loadMoreArticle()函数。此函数会在articleList数据源的尾部添加一个新的数据项，从而增加数据源的长度。
+ 2：数据源被articleList被@State装饰器修饰，ArkUI框架能够感知到数据源长度的变化，并触发ForEach进行重新渲染。
  */
 
 class Article {
