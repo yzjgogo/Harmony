@@ -1,7 +1,7 @@
 
 /**
   数据源不变：https://developer.huawei.com/consumer/cn/training/course/slightMooc/C101717496870909384
- 循环渲染 -> 使用场景 -> 数据源不变
+ 循环渲染 -> 使用场景 -> 数据源不变（simpleList没有发生改变）
 
  这里所说的数据源不变，不要误解，就是相对于A4_ForEach_3.ets的数据源发生改变来说的
  */

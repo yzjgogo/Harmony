@@ -1,7 +1,7 @@
 
 /**
  https://developer.huawei.com/consumer/cn/training/course/slightMooc/C101717496870909384
- 循环渲染 -> 使用场景 -> 数据源数组项发生变化
+ 循环渲染 -> 使用场景 -> 数据源数组项发生变化（articleList的某写item发生变化）
 
  这里的 数据源数组项发生变化，是相对于A4_ForEach_2.ets来说的
 

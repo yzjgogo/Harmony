@@ -38,6 +38,10 @@ struct Index {
         .onClick(()=>{
           router.pushUrl({url:'pages/A4_ForEach_3'})
         })
+      Button("循环渲染ForEach-数据源数组项子属性变化")
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A4_ForEach_4'})
+        })
     }
   }
 }
