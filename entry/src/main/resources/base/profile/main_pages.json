@@ -5,6 +5,8 @@
     "pages/A1_diy_component",
     "pages/A2_page_component_lifecycle",
     "pages/A3_component_observer_Page",
-    "pages/A4_ForEach"
+    "pages/A4_ForEach",
+    "pages/A4_ForEach_2",
+    "pages/A4_ForEach_3"
   ]
 }
