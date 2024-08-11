@@ -12,3 +12,29 @@
 
 状态管理
    https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/arkts-state-management-overview-V5
+
+
+
+.alignItems(HorizontalAlign.Start)
+.justifyContent(FlexAlign.SpaceAround)
+适用与所有的容器组件？例如Column,Row, Flex,List?
+    alignItems:侧轴上子元素的排列方式
+    justifyContent:主轴上子元素的排列方式
+
+
+//A4_ForEach_3.ets 里涉及到了手势
+      .parallelGesture(
+        PanGesture({ direction: PanDirection.Up, distance: 1 })
+          .onActionStart((event) => {
+            console.error("执行-onActionStart")
+          })
+          .onActionUpdate((event)=>{
+            console.error("执行-onActionUpdate")
+          })
+          .onActionEnd((event)=>{
+            console.error("执行-onActionEnd")
+          })
+          .onActionCancel(()=>{
+            console.error("执行-onActionCancel")
+          })
+      )

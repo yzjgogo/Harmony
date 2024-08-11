@@ -1,3 +1,11 @@
+
+/**
+ https://developer.huawei.com/consumer/cn/training/course/slightMooc/C101717496870909384
+ 循环渲染 -> 使用场景 -> 数据源数组项发生变化
+
+ 这里的 数据源数组项发生变化，是相对于A4_ForEach_2.ets来说的
+ */
+
 class Article {
   id: string;
   title: string;
@@ -23,24 +31,28 @@ struct A4_ForEach_3 {
     new Article('006', '第6篇文章', '文章简介内容')
   ]
 
+  //让数据源articleList的数组项发生变化
   loadMoreArticles() {
     this.articleList.push(new Article('007', '加载的新文章', '文章简介内容'));
   }
 
   build() {
     Column({ space: 5 }) {
+      //https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/ts-container-list-V5
       List() {
         ForEach(this.articleList, (item: Article) => {
+          //ListItem组件要求ForEach的父容器组件必须为List组件
           ListItem() {
             ArticleCard({ article: item })
               .margin({ top: 20 })
           }
         }, (item: Article) => item.id)
       }
+      //当List滚动到底触发回调
       .onReachEnd(() => {
         this.isListReachEnd = true;
       })
-      .parallelGesture(
+      .parallelGesture(//手势处理
         PanGesture({ direction: PanDirection.Up, distance: 1 })
           .onActionStart((event) => {
             console.error("执行-onActionStart")
@@ -70,7 +82,10 @@ struct A4_ForEach_3 {
 
 @Component
 struct ArticleCard {
+  //用@Prop定义子组件的变量不需要初始化
   @Prop article: Article;
+  //用@State定义子组件的变量需要初始化
+  // @State article: Article =new Article('009', '第1篇文章9', '文章简介内容9');
 
   build() {
     Row() {

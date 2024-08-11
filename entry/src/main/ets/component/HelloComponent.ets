@@ -23,8 +23,10 @@ import { promptAction } from '@kit.ArkUI';
 
 @Component
 struct HelloComponent {
-  //成员变量
-  @State message: string = 'Hello, World!';
+  //用@State定义子组件的变量需要初始化
+  // @State message: string = 'Hello, World!';
+  //用@Prop定义子组件的变量不需要初始化
+  @Prop message: string;
   //成员函数
   doSomething() {
 
