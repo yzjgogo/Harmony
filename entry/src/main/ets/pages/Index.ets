@@ -26,6 +26,10 @@ struct Index {
         .onClick(()=>{
           router.pushUrl({url:'pages/A3_component_observer_Page'})
         })
+      Button("循环渲染ForEach")
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A4_ForEach'})
+        })
     }
   }
 }
