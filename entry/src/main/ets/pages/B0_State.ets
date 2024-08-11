@@ -16,6 +16,9 @@ const obj: Person = {
 console.error('执行查看第一层属性', Object.keys(obj))
 /**
  @State的用法：监听数据的变化，触发UI响应式的更新
+
+ 如果组件的状态变量没有被@State修饰，则组件只有在首次渲染时，使用状态变量的数据渲染UI，当状态变量的数据发生变化时，不会触发UI的自动响应式更新
+
  总之，通过Object.keys(obj)获取到的属性都能被监听到，发生变化时都会触发UI更新
  例如：Object.keys(person) -> name,car
  则name和car的指向(整体)发生变化都会触发UI更新，但是因为并没有获取到car.name，所有单纯的修改person.car.name = xxx 是无法触发UI更新的
