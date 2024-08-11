@@ -18,6 +18,9 @@
  b:ForEach 遍历新的数据源 ['one', 'two', 'new three']，并生成对应的键值one、two和new three。
  c:其中，键值one和two在上次渲染中已经存在，所以 ForEach 复用了对应的组件并进行了渲染。对于第三个数组项 "new three"，由于其通过键值生成规则 item 生成的键值new three在上次渲染中不存在，因此 ForEach 为该数组项创建了一个新的组件。
 
+ 注意：在生成键值时，尽量不要让index参与键值的生成
+ 参考：https://developer.huawei.com/consumer/cn/training/course/slightMooc/C101717496870909384
+ 循环渲染 -> 渲染结果非预期 和 渲染性能降低
  */
 @Entry
 @Component
