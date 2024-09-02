@@ -42,6 +42,18 @@ struct Index {
         .onClick(()=>{
           router.pushUrl({url:'pages/A4_ForEach_4'})
         })
+      Button("循环渲染ForEach-拖拽排序")
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A4_ForEach_5'})
+        })
+      Button("UIAbility组件生命周期")
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A5_UIAbility_lifecycle'})
+        })
+      Button("UIAbility的启动模式")
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A6_UIAbility_start_mode'})
+        })
     }
   }
 }

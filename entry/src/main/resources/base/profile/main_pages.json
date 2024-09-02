@@ -12,6 +12,11 @@
     "pages/B0_State",
     "pages/B1_Prop",
     "pages/B2_ObjectLink",
-    "pages/A4_ForEach_5"
+    "pages/A4_ForEach_5",
+    "pages/A5_UIAbility_lifecycle",
+    "pages/A6_UIAbility_start_mode",
+    "pages/Z1_SingletonPage",
+    "pages/Z2_MultitonPage",
+    "pages/Z3_SpecifiedPage"
   ]
 }
