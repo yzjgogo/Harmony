@@ -2,7 +2,10 @@
  *
  UIAbility组件启动模式
  https://developer.huawei.com/consumer/cn/training/course/slightMooc/C101717497122909477
- 涉及到如何启动UIAbility 以及 UIAbility启动的同时传参
+ 涉及到：
+ 1：如何启动UIAbility
+ 2：UIAbility启动的同时传参
+ 3：在page中获取UIAbilityContext
 
  UIAbilityContext 的 startAbility(want) 传递的want ,可以通过目标UIAbility的onNewWant和onCreate的方法的want参数接收。
  */
@@ -19,6 +22,7 @@ struct A6_UIAbility_start_mode {
       Text("EntryAbility")
         .fontSize(30)
 
+      //单例模式的UIAbility
       Button("启动Singleton的UIAbility-SingletonAbility")
         .margin({top:30})
         .onClick(()=>{
@@ -37,6 +41,7 @@ struct A6_UIAbility_start_mode {
           })
         })
 
+      //多例模式的UIAbility
       Button("启动multiton的UIAbility-MultitonAbility")
         .margin({top:30})
         .onClick(()=>{
@@ -55,6 +60,8 @@ struct A6_UIAbility_start_mode {
           })
         })
       Column(){
+        //指定模式的UIAbility：根据AbilityStage的onAcceptWant()的返回值，确定目标SpecifiedAbility是创建一个新的实例，还是复用已存在的实例，相当于，根据
+        //onAcceptWant()的返回值决定SpecifiedAbility是Singleton模式还是Multiton模式，相当于SpecifiedAbility的模式是动态的。
         // 参考：MyAbilityStage
         Button("启动specified的UIAbility-SpecifiedAbility-1")
           .margin({top:30})

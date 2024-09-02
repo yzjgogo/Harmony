@@ -50,9 +50,17 @@ struct Index {
         .onClick(()=>{
           router.pushUrl({url:'pages/A5_UIAbility_lifecycle'})
         })
-      Button("UIAbility的启动模式")
+      Button("UIAbility的启动模式-启动别的UIAbility和传参-在page中获取UIAbilityContext")
         .onClick(()=>{
           router.pushUrl({url:'pages/A6_UIAbility_start_mode'})
+        })
+      Button("UIAbility组件基本用法-指定UIAbility的启动页面-获取UIAbility的上下文信息")
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A7_UIAbility_base_use'})
+        })
+      Button("UIAbility组件与UI的数据通信：EventHub事件的发送与接收")
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A8_UIAbility_EventHub'})
         })
     }
   }

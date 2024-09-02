@@ -38,3 +38,6 @@
             console.error("执行-onActionCancel")
           })
       )
+
+
+使用AppStorage/LocalStorage进行数据同步：https://developer.huawei.com/consumer/cn/training/course/slightMooc/C101717497122909477

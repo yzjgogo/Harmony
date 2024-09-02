@@ -17,6 +17,8 @@
     "pages/A6_UIAbility_start_mode",
     "pages/Z1_SingletonPage",
     "pages/Z2_MultitonPage",
-    "pages/Z3_SpecifiedPage"
+    "pages/Z3_SpecifiedPage",
+    "pages/A7_UIAbility_base_use",
+    "pages/A8_UIAbility_EventHub"
   ]
 }

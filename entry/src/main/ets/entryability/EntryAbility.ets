@@ -23,10 +23,27 @@ export default class EntryAbility extends UIAbility {
   }
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     console.error("执行EntryAbility-onCreate")
+    //this.context就是UIAbilityContext
+    let context = this.context
+    //EventHub步骤2：注册(订阅)事件
+    let eventhub = this.context.eventHub;
+    //订阅方式1
+    eventhub.on('event1', this.eventFunc);
+    //订阅方式2
+    eventhub.on('event1', (data: string) => {
+      // 触发事件，完成相应的业务操作
+      console.error(`执行箭头event：${data}`);
+    });
   }
-
+  //EventHub步骤3：接收事件参数的类型可以用Context接收，即使咱们在A8_UIAbility_EventHub里传递的参数是number类型的1和string类型的'事件test',也可以用Context接收，当然你也可以用number和string接收
+  eventFunc(argOne: Context, argTwo: Context): void {
+    console.error(`执行eventFunc：${argOne}, ${argTwo}`);
+    return;
+  }
   onDestroy(): void {
     console.error("执行EntryAbility-onDestroy")
+    //EventHub步骤4-1：在合适的位置取消事件的订阅
+    this.context.eventHub.off('event1');
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
@@ -56,7 +73,7 @@ export default class EntryAbility extends UIAbility {
       console.error("执行EntryAbility-异常："+JSON.stringify(exception))
     }
 
-    windowStage.loadContent('pages/A6_UIAbility_start_mode', (err) => {
+    windowStage.loadContent('pages/A8_UIAbility_EventHub', (err) => {
       if (err.code) {
         hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
         return;
