@@ -21,6 +21,10 @@
       "value": "指定实例desc"
     },
     {
+      "name": "ForResultAbility_desc",
+      "value": "返回结果desc"
+    },
+    {
       "name": "SingletonAbility_label",
       "value": "单例label"
     },
@@ -31,6 +35,10 @@
     {
       "name": "SpecifiedAbility_label",
       "value": "指定实例label"
+    },
+    {
+      "name": "ForResultAbility_label",
+      "value": "返回结果label"
     }
   ]
 }

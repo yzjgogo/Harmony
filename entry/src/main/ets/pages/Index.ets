@@ -62,6 +62,13 @@ struct Index {
         .onClick(()=>{
           router.pushUrl({url:'pages/A8_UIAbility_EventHub'})
         })
+      Text("UIAbility组件间交互（设备内）:启动应用内的UIAbility、启动应用内的UIAbility并获取返回结果、启动UIAbility的指定页面")
+        .backgroundColor(Color.Yellow)
+        .padding(10)
+        .margin({top:10})
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A9_UIAbility_operation'})
+        })
     }
   }
 }

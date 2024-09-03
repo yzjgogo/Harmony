@@ -19,6 +19,8 @@
     "pages/Z2_MultitonPage",
     "pages/Z3_SpecifiedPage",
     "pages/A7_UIAbility_base_use",
-    "pages/A8_UIAbility_EventHub"
+    "pages/A8_UIAbility_EventHub",
+    "pages/A9_UIAbility_operation",
+    "pages/Z4_ForResultPage"
   ]
 }

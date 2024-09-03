@@ -73,7 +73,7 @@ export default class EntryAbility extends UIAbility {
       console.error("执行EntryAbility-异常："+JSON.stringify(exception))
     }
 
-    windowStage.loadContent('pages/A8_UIAbility_EventHub', (err) => {
+    windowStage.loadContent('pages/A9_UIAbility_operation', (err) => {
       if (err.code) {
         hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
         return;
@@ -99,6 +99,7 @@ export default class EntryAbility extends UIAbility {
   }
 
   onBackground(): void {
+
     console.error("执行EntryAbility-onBackground")
     // Ability has back to background
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onBackground');
