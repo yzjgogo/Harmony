@@ -25,6 +25,10 @@
       "value": "返回结果desc"
     },
     {
+      "name": "TargetAbility_desc",
+      "value": "目标desc"
+    },
+    {
       "name": "SingletonAbility_label",
       "value": "单例label"
     },
@@ -39,6 +43,10 @@
     {
       "name": "ForResultAbility_label",
       "value": "返回结果label"
+    },
+    {
+      "name": "TargetAbility_label",
+      "value": "目标label"
     }
   ]
 }

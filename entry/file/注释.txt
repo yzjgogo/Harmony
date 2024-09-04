@@ -1,3 +1,23 @@
+Context总结：
+ 1：UIAbilityContext
+ A6_UIAbility_start_mode.ets
+ A7_UIAbility_base_use.ets
+
+ 2：UIContext
+ D:\Harmony\Study\Harmony\entry\src\main\ets\pages\A9_UIAbility_operation.ets
+ D:\Harmony\Study\Harmony\entry\src\main\ets\entryability\TargetAbility.ets
+ UIContext = (window.Window).getUIContext()
+ 可以通过UIContext获取router,然后通过router打开页面
+
+Window总结：window.Window
+D:\Harmony\Study\Harmony\entry\src\main\ets\pages\A9_UIAbility_operation.ets
+D:\Harmony\Study\Harmony\entry\src\main\ets\entryability\TargetAbility.ets
+window.WindowStage.getMainWindow((err,window)=>{}) 这个window就是window.Window
+UIContext = (window.Window).getUIContext()
+
+
+
+
  https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/arkts-custom-components-freeze-V5
  @Component({ freezeWhenInactive: true })
  struct MyComponent {

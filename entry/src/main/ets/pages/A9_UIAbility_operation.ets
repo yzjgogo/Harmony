@@ -3,7 +3,8 @@
  UIAbility组件间交互（设备内）：
  1：启动应用内的UIAbility
  2：启动应用内的UIAbility并获取返回结果
- 3：启动UIAbility的指定页面
+ 3：启动UIAbility的指定页面，涉及到UIContext、router、window.Window
+
  */
 import { common, Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -11,7 +12,6 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct A9_UIAbility_operation {
-
   build() {
     Column() {
       Text("启动应用内的UIAbility：参考：A6_UIAbility_start_mode")
@@ -60,12 +60,62 @@ struct A9_UIAbility_operation {
             if (data?.resultCode === RESULT_CODE) {
               // 解析被调用方UIAbility返回的信息
               let info = data.want?.parameters?.info;
-              console.error("执行获取到返回的数据："+JSON.stringify(info))
+              console.error("执行获取到返回的数据：" + JSON.stringify(info))
             }
           }).catch((err: BusinessError) => {
-            console.error("执行获取到返回的数据出错："+JSON.stringify(err))
+            console.error("执行获取到返回的数据出错：" + JSON.stringify(err))
           });
 
+        })
+
+
+      Text("启动UIAbility的指定页面 -> 目标UIAbility冷启动，其实就是走目标UIAbility的onCreate()和onWindowStageCreate（）")
+        .backgroundColor(Color.Orange)
+        .padding(10)
+        .margin({ top: 10 })
+        .onClick(() => {
+          let context: common.UIAbilityContext = getContext(this) as common.UIAbilityContext; // UIAbilityContext
+          let want: Want = {
+            deviceId: '', // deviceId为空表示本设备
+            bundleName: 'com.example.myapplication',
+            moduleName: 'entry', // moduleName非必选
+            abilityName: 'TargetAbility',
+            parameters: {
+              // 自定义参数传递页面信息
+              router: 'targetPage2'
+            }
+          };
+          // context为调用方UIAbility的UIAbilityContext
+          context.startAbility(want).then(() => {
+            console.error("目标UIAbility冷启动成功")
+          }).catch((err: BusinessError) => {
+            console.error("目标UIAbility冷启动失败")
+          });
+        })
+
+
+      Text("启动UIAbility的指定页面 -> 目标UIAbility热启动，说明目标UIAbility已经创建成功，其实就是走目标UIAbility的onNewWant()")
+        .backgroundColor(Color.Orange)
+        .padding(10)
+        .margin({ top: 10 })
+        .onClick(() => {
+          let context: common.UIAbilityContext = getContext(this) as common.UIAbilityContext; // UIAbilityContext
+          let want: Want = {
+            deviceId: '', // deviceId为空表示本设备
+            bundleName: 'com.example.myapplication',
+            moduleName: 'entry', // moduleName非必选
+            abilityName: 'TargetAbility',
+            parameters: {
+              // 自定义参数传递页面信息
+              router: 'targetPage1'
+            }
+          };
+          // context为调用方UIAbility的UIAbilityContext
+          context.startAbility(want).then(() => {
+            console.error("目标UIAbility热启动成功")
+          }).catch((err: BusinessError) => {
+            console.error("目标UIAbility热启动失败")
+          });
         })
     }
   }
