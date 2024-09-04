@@ -76,6 +76,20 @@ struct Index {
         .onClick(()=>{
           router.pushUrl({url:'pages/A10_router'})
         })
+      Text("Tabs的用法")
+        .backgroundColor(Color.Yellow)
+        .padding(10)
+        .margin({top:10})
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A11_tabs'})
+        })
+      Text("Tabs的用法-自定义")
+        .backgroundColor(Color.Yellow)
+        .padding(10)
+        .margin({top:10})
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A12_tabs_diy'})
+        })
     }
   }
 }
