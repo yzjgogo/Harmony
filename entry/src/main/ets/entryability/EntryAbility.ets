@@ -73,7 +73,7 @@ export default class EntryAbility extends UIAbility {
       console.error("执行EntryAbility-异常："+JSON.stringify(exception))
     }
 
-    windowStage.loadContent('pages/A9_UIAbility_operation', (err) => {
+    windowStage.loadContent('pages/A10_router', (err) => {
       if (err.code) {
         hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
         return;

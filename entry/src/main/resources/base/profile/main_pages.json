@@ -23,6 +23,7 @@
     "pages/A9_UIAbility_operation",
     "pages/Z4_ForResultPage",
     "pages/Z5_TargetPage1",
-    "pages/Z5_TargetPage2"
+    "pages/Z5_TargetPage2",
+    "pages/A10_router"
   ]
 }

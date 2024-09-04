@@ -69,6 +69,13 @@ struct Index {
         .onClick(()=>{
           router.pushUrl({url:'pages/A9_UIAbility_operation'})
         })
+      Text("路由待学")
+        .backgroundColor(Color.Yellow)
+        .padding(10)
+        .margin({top:10})
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A10_router'})
+        })
     }
   }
 }
