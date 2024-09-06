@@ -26,6 +26,7 @@
     "pages/Z5_TargetPage2",
     "pages/A10_router",
     "pages/A11_tabs",
-    "pages/A12_tabs_diy"
+    "pages/A12_tabs_diy",
+    "pages/A13_Navigation"
   ]
 }

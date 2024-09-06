@@ -90,6 +90,14 @@ struct Index {
         .onClick(()=>{
           router.pushUrl({url:'pages/A12_tabs_diy'})
         })
+
+      Text("Navigation的用法")
+        .backgroundColor(Color.Yellow)
+        .padding(10)
+        .margin({top:10})
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A13_Navigation'})
+        })
     }
   }
 }
