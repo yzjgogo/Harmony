@@ -26,6 +26,25 @@ struct A13_Navigation {
 
   private arr: number[] = [1, 2, 3];
 
+  aboutToAppear(): void {
+    this.pageInfos.setInterception({
+      willShow: (from: NavDestinationContext | "navBar", to: NavDestinationContext | "navBar",
+        operation: NavigationOperation, animated: boolean) => {
+        console.error("执行setInterception:"+(typeof from)+","+(typeof to)+","+operation)
+        if (typeof to === "string") {
+          console.log("target page is navigation home page.");
+          return;
+        }
+        // 将跳转到PageTwo的路由重定向到PageOne
+        let target: NavDestinationContext = to as NavDestinationContext;
+        if (target.pathInfo.name === 'NavDestinationTitle2') {
+          target.pathStack.pop();//想重定向，也需要pop()一下
+          target.pathStack.pushPathByName('NavDestinationTitle1', null);
+        }
+      }
+    })
+  }
+
   @Builder
   PageMap(name: string) {
     if (name === "NavDestinationTitle1") {
@@ -105,6 +124,14 @@ struct A13_Navigation {
         },
         {
           value: "", icon: "./image/shs_me_check.png", action: () => {
+          // 获取栈中所有页面name集合
+          this.pageInfos.getAllPathName()
+          // 获取索引为1的页面参数
+          this.pageInfos.getParamByIndex(1)
+          // 获取PageOne页面的参数
+          this.pageInfos.getParamByName("NavDestinationTitle1")
+          // 获取PageOne页面的索引集合
+          this.pageInfos.getIndexByName("NavDestinationTitle1")
         }
         },
         {
