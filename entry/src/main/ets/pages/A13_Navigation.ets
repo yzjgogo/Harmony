@@ -24,9 +24,10 @@ struct A13_Navigation {
   //NavPathStack页面栈继承示例：https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/ts-basic-components-navigation-V5#%E7%A4%BA%E4%BE%8B10
   @Provide('pageInfos') pageInfos: NavPathStack = new NavPathStack()
 
-  private arr: number[] = [1, 2, 3];
+  private arr: number[] = [1, 2, 3,4];
 
   aboutToAppear(): void {
+    /*
     this.pageInfos.setInterception({
       willShow: (from: NavDestinationContext | "navBar", to: NavDestinationContext | "navBar",
         operation: NavigationOperation, animated: boolean) => {
@@ -43,6 +44,7 @@ struct A13_Navigation {
         }
       }
     })
+    */
   }
 
   @Builder
@@ -53,6 +55,8 @@ struct A13_Navigation {
       pageTwoTmp()
     } else if (name === "NavDestinationTitle3") {
       pageThreeTmp()
+    } else if (name === "NavDestinationTitle4") {
+      pageFourTmp()
     }
   }
 
@@ -77,13 +81,13 @@ struct A13_Navigation {
                 .textAlign(TextAlign.Center)
                 .onClick(() => {
                   console.error("执行跳转-=0")
-                  // this.pageInfos.pushPath({ name: "NavDestinationTitle" + item })
+                  this.pageInfos.pushPath({ name: "NavDestinationTitle" + item })
 
                   // this.pageInfos.pushPathByName("NavDestinationTitle" + item,'')
 
-                  this.pageInfos.pushPathByName("NavDestinationTitle" + item,'',(popInfo)=>{
-                    console.error('执行pushPathByName-然后出栈: ' + popInfo.info.name + ', result: ' + JSON.stringify(popInfo.result))
-                  })
+                  // this.pageInfos.pushPathByName("NavDestinationTitle" + item,'',(popInfo)=>{
+                  //   console.error('执行pushPathByName-然后出栈: ' + popInfo.info.name + ', result: ' + JSON.stringify(popInfo.result))
+                  // })
 
                   // this.pageInfos.pushDestinationByName("NavDestinationTitle" + item, '')
                   //   .catch((error: BusinessError) => {
@@ -209,5 +213,35 @@ export struct pageThreeTmp {
       console.error('执行pop' + '返回值' + JSON.stringify(popDestinationInfo))
       return true
     })
+  }
+}
+
+// PageThree.ets
+@Component
+export struct pageFourTmp {
+  @Consume('pageInfos') pageInfos: NavPathStack;
+
+  build() {
+    NavDestination() {
+      Stack() {
+        Column() {
+          Text("Dialog NavDestination")
+            .fontSize(20)
+            .margin({ bottom: 100 })
+          Button("Close").onClick(() => {
+            this.pageInfos.pop()
+          }).width('30%')
+        }
+        .width('50%')
+        .height('50%')
+        .backgroundColor(Color.White)
+        .borderRadius(10)
+      }
+      .width('100%')
+      .height('100%')
+    }
+    .backgroundColor('rgba(0,0,0,0.5)')
+    .hideTitleBar(true)
+    .mode(NavDestinationMode.DIALOG)
   }
 }

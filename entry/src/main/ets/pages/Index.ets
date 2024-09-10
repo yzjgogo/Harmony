@@ -98,6 +98,22 @@ struct Index {
         .onClick(()=>{
           router.pushUrl({url:'pages/A13_Navigation'})
         })
+
+      Text("Navigation的用法-Dialog")
+        .backgroundColor(Color.Yellow)
+        .padding(10)
+        .margin({top:10})
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A13_Navigation_Dialog'})
+        })
+
+      Text("Navigation的用法-生命周期")
+        .backgroundColor(Color.Yellow)
+        .padding(10)
+        .margin({top:10})
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A13_Navigation_lifecycle'})
+        })
     }
   }
 }

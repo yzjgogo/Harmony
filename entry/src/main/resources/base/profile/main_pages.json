@@ -27,6 +27,8 @@
     "pages/A10_router",
     "pages/A11_tabs",
     "pages/A12_tabs_diy",
-    "pages/A13_Navigation"
+    "pages/A13_Navigation",
+    "pages/A13_Navigation_Dialog",
+    "pages/A13_Navigation_lifecycle"
   ]
 }
