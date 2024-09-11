@@ -27,7 +27,7 @@
 
 @Entry
 @Component
-struct A13_Navigation_lifecycle {
+struct A15_Navigation_lifecycle {
   @Provide('NavPathStack') pageStack: NavPathStack = new NavPathStack()
 
   @Builder

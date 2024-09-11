@@ -1,6 +1,6 @@
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
-import { window } from '@kit.ArkUI';
+import { UIObserver, window } from '@kit.ArkUI';
 /**
  UIAbility声明周期
  https://developer.huawei.com/consumer/cn/training/course/slightMooc/C101717497122909477
@@ -73,13 +73,36 @@ export default class EntryAbility extends UIAbility {
       console.error("执行EntryAbility-异常："+JSON.stringify(exception))
     }
 
-    windowStage.loadContent('pages/A13_Navigation_lifecycle', (err) => {
+    windowStage.loadContent('pages/A17_Navigation_lifecycle_observer', (err) => {
       if (err.code) {
         hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
         return;
       }
       hilog.info(0x0000, 'testTag', 'Succeeded in loading the content.');
     });
+
+    windowStage.getMainWindow((err,data)=>{
+      let windowClass:window.Window = data
+      let uiContext: UIContext = windowClass.getUIContext()
+      let uiObserver:UIObserver = uiContext.getUIObserver()
+      //在‘A13_Navigation_observer.ets’才用到这里的“navDestinationUpdate”监听，用于注册NavDestination生命周期变化的监听
+      //info是NavDestinationInfo
+      //info.state是NavDestinationState，其实就是对应NavDestinationInfo各个生命周期状态(A13_Navigation_lifecycle.ets),
+      // 具体按住Ctrl+左键进入state，可看到：ON_SHOWN = 0；ON_HIDDEN = 1；ON_APPEAR = 2；ON_DISAPPEAR = 3；ON_WILL_SHOW = 4；ON_WILL_HIDE = 5；ON_WILL_APPEAR = 6；ON_WILL_DISAPPEAR = 7；ON_BACKPRESS = 100
+      uiObserver.on("navDestinationUpdate",(info)=>{
+        // NavDestinationState.ON_SHOWN = 0, NavDestinationState.ON_HIDE = 1
+        if(info.state == 0){
+          // NavDestination组件显示时操作
+          console.error("执行navDestinationUpdate-ON_SHOWN:"+JSON.stringify(info))
+        }else if(info.state == 1){
+          // NavDestination组件隐藏时操作
+          console.error("执行navDestinationUpdate-ON_HIDE:"+JSON.stringify(info))
+        }else {
+          // NavDestination组件其他操作，2,3,4,5,6,7,100
+          console.error("执行navDestinationUpdate-其它:"+info.state+","+JSON.stringify(info))
+        }
+      })
+    })
   }
 
   onWindowStageWillDestroy(windowStage: window.WindowStage): void {

@@ -8,12 +8,22 @@ Context总结：
  D:\Harmony\Study\Harmony\entry\src\main\ets\entryability\TargetAbility.ets
  UIContext = (window.Window).getUIContext()
  可以通过UIContext获取router,然后通过router打开页面
+ 可以通过UIContext获取UIObserver（参考：A13_Navigation_observer.ets）
+
+ A3_component_observer_Page.ets 用到了UIContext
 
 Window总结：window.Window
 D:\Harmony\Study\Harmony\entry\src\main\ets\pages\A9_UIAbility_operation.ets
 D:\Harmony\Study\Harmony\entry\src\main\ets\entryability\TargetAbility.ets
 window.WindowStage.getMainWindow((err,window)=>{}) 这个window就是window.Window
 UIContext = (window.Window).getUIContext()
+
+
+UIObserver
+UIObserver = uiContext.getUIObserver();
+
+
+
 
 
 

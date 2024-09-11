@@ -3,7 +3,7 @@
 
 @Entry
 @Component
-struct A13_Navigation_Dialog {
+struct A14_Navigation_Dialog {
   @Provide('NavPathStack') pageStack: NavPathStack = new NavPathStack()
 
   @Builder

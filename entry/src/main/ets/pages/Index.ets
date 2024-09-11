@@ -104,7 +104,7 @@ struct Index {
         .padding(10)
         .margin({top:10})
         .onClick(()=>{
-          router.pushUrl({url:'pages/A13_Navigation_Dialog'})
+          router.pushUrl({url:'pages/A14_Navigation_Dialog'})
         })
 
       Text("Navigation的用法-生命周期")
@@ -112,7 +112,23 @@ struct Index {
         .padding(10)
         .margin({top:10})
         .onClick(()=>{
-          router.pushUrl({url:'pages/A13_Navigation_lifecycle'})
+          router.pushUrl({url:'pages/A15_Navigation_lifecycle'})
+        })
+
+      Text("Navigation的用法-查询当前组件所在NavDestination和Navigation的信息")
+        .backgroundColor(Color.Yellow)
+        .padding(10)
+        .margin({top:10})
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A16_Navigation_NavDestinationInfo'})
+        })
+
+      Text("Navigation的用法-注册NavDestination生命周期变化的监听")
+        .backgroundColor(Color.Yellow)
+        .padding(10)
+        .margin({top:10})
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A17_Navigation_lifecycle_observer'})
         })
     }
   }
