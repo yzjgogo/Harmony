@@ -1,9 +1,9 @@
 Context总结：
- 1：UIAbilityContext
+ 1：UIAbilityContext 属于UIAbility
  A6_UIAbility_start_mode.ets
  A7_UIAbility_base_use.ets
 
- 2：UIContext
+ 2：UIContext 属于窗口window
  D:\Harmony\Study\Harmony\entry\src\main\ets\pages\A9_UIAbility_operation.ets
  D:\Harmony\Study\Harmony\entry\src\main\ets\entryability\TargetAbility.ets
  UIContext = (window.Window).getUIContext()
@@ -20,7 +20,11 @@ UIContext = (window.Window).getUIContext()
 
 
 UIObserver
-UIObserver = uiContext.getUIObserver();
+获取方式1：UIObserver = uiContext.getUIObserver();
+参考：EntryAbility.ets里的getMainWindow里、A17_Navigation_lifecycle_observer.ets
+获取方式2：import { uiObserver } from '@kit.ArkUI' 直接使用这个导入的uiObserver
+参考：A18_Navigation_NavDestinationSwitchInfo.ets
+
 
 
 

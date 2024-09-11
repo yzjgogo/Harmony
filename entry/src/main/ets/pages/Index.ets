@@ -130,6 +130,14 @@ struct Index {
         .onClick(()=>{
           router.pushUrl({url:'pages/A17_Navigation_lifecycle_observer'})
         })
+
+      Text("Navigation的用法-注册页面切换的状态")
+        .backgroundColor(Color.Yellow)
+        .padding(10)
+        .margin({top:10})
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A18_Navigation_NavDestinationSwitchInfo'})
+        })
     }
   }
 }

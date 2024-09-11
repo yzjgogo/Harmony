@@ -41,6 +41,7 @@ struct A17_Navigation_lifecycle_observer {
 
   /**
    * 注册监听
+   * 注意这里的uiObserver可以是从@kit.ArkUI导入的uiObserver，也可以是UIContext的getUIObserver() 对比“A18_Navigation_NavDestinationSwitchInfo.ets”里的
    */
   aboutToAppear(): void {
     let uiContext: UIContext = this.getUIContext()
@@ -50,6 +51,7 @@ struct A17_Navigation_lifecycle_observer {
 
   /**
    * 取消监听
+   * 注意这里的uiObserver可以是从@kit.ArkUI导入的uiObserver，也可以是UIContext的getUIObserver() 对比“A18_Navigation_NavDestinationSwitchInfo.ets”里的
    */
   aboutToDisappear(): void {
     let uiContext: UIContext = this.getUIContext()
