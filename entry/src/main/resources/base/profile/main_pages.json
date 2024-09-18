@@ -32,6 +32,7 @@
     "pages/A15_Navigation_lifecycle",
     "pages/A16_Navigation_NavDestinationInfo",
     "pages/A17_Navigation_lifecycle_observer",
-    "pages/A18_Navigation_NavDestinationSwitchInfo"
+    "pages/A18_Navigation_NavDestinationSwitchInfo",
+    "pages/A19_Navigation_Animation"
   ]
 }

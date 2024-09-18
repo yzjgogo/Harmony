@@ -138,6 +138,14 @@ struct Index {
         .onClick(()=>{
           router.pushUrl({url:'pages/A18_Navigation_NavDestinationSwitchInfo'})
         })
+
+      Text("Navigation的用法-页面转场动画")
+        .backgroundColor(Color.Yellow)
+        .padding(10)
+        .margin({top:10})
+        .onClick(()=>{
+          router.pushUrl({url:'pages/A19_Navigation_Animation.ets'})
+        })
     }
   }
 }
