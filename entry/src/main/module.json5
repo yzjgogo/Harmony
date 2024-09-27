@@ -1,3 +1,4 @@
+//官网：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/module-configuration-file-V5
 {
   "module": {
     "name": "entry",
@@ -13,6 +14,12 @@
     "deliveryWithInstall": true,
     "installationFree": false,
     "pages": "$profile:main_pages",
+    "metadata":[
+      {
+        "name":"client_id",
+        "value":"111509847"
+      }
+    ],
     "abilities": [
       {
         "name": "EntryAbility",
