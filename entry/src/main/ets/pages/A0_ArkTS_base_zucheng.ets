@@ -48,6 +48,7 @@ struct A0_ArkTS_base_zucheng {
   }
 
   myArrowFun=()=>{
-    promptAction.showToast({message:"使用声明的箭头函数，可以直接调用，不需要bind this。"})
+  //即使不用bind(this),箭头函数里面仍然可以使用this访问组件
+    promptAction.showToast({message:"使用声明的箭头函数，可以直接调用，不需要bind this。"+this.myText})
   }
 }
