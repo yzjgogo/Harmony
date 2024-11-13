@@ -58,6 +58,11 @@ struct ObservedAndLink {
     Column({ space: 20 }) {
       Text('父组件')
         .fontSize(30)
+        .onClick(()=>{
+          //这里改变age,在MyCom里和ItemCom里的info都会响应式更新，因为他们都用@ObjectLink修饰了。
+          //而位置1仍然不会响应式更新
+          this.studentList[0].age++
+        })
       // 属性更新的逻辑: 当我们@Observed装饰过的数据, 属性改变时, 就会监听到
       // 遍历依赖它的 @ObjectLink 包装类, 通知数据更新
       // 注意: entry 组件无法直接使用 ObjectLink, 需要包一层
