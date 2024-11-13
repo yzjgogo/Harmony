@@ -62,6 +62,12 @@ struct ObservedAndLink {
           //这里改变age,在MyCom里和ItemCom里的info都会响应式更新，因为他们都用@ObjectLink修饰了。
           //而位置1仍然不会响应式更新
           this.studentList[0].age++
+          //下面这样直接给[0]赋值，位置1也会响应式更新，MyCom里和ItemCom里也会响应式更新，因为这正好是@State的特点，[0]是studentList的第一层属性
+          // this.studentList[0] = new Student({
+          //   id: 4,
+          //   name: '刘六',
+          //   age: 99
+          // })
         })
       // 属性更新的逻辑: 当我们@Observed装饰过的数据, 属性改变时, 就会监听到
       // 遍历依赖它的 @ObjectLink 包装类, 通知数据更新
