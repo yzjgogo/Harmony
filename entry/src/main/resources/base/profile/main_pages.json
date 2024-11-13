@@ -33,6 +33,12 @@
     "pages/A16_Navigation_NavDestinationInfo",
     "pages/A17_Navigation_lifecycle_observer",
     "pages/A18_Navigation_NavDestinationSwitchInfo",
-    "pages/A19_Navigation_Animation"
+    "pages/A19_Navigation_Animation",
+    "pages/L3_Extend_1",
+    "pages/L3_Extend_2",
+    "pages/L4_Styles_1",
+    "pages/L4_Styles_2",
+    "pages/L5_Builder_1",
+    "pages/L5_Builder_2"
   ]
 }
