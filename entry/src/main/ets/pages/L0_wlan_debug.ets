@@ -7,6 +7,12 @@
  2：不会用hdc命令，可以参考这里：
  https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V2/ide-command-line-hdc-0000001237908229-V2
  参考图片：hdc用法.jpg
+
+
+ 具体使用：
+ 进入：F:\Program Files\Huawei\DevEco Studio\sdk\HarmonyOS-NEXT-DB6\openharmony\toolchains>
+ 在地址栏：cmd
+  执行：hdc tconn 192.168.6.46:33835
  */
 @Entry
 @Component

@@ -3,7 +3,8 @@
  自定义组件监听页面生命周期
 
  https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/js-apis-arkui-observer-V5#observeronrouterpageupdate11
- 无感监听页面路由,用于监听router中page页面的状态变化(生命周期函数的变化)
+ 无感监听页面路由,用于监听router中page页面的状态变化(生命周期函数的变化),例如uiObserver.RouterPageState.ON_PAGE_SHOW，uiObserver.RouterPageState.ON_PAGE_HIDE
+ 这些state对应A2_page_component_lifecycle.ets的各个生命周期函数
  Navigation是不是也适用呢
  * */
 import { uiObserver, router, UIObserver } from '@kit.ArkUI';
