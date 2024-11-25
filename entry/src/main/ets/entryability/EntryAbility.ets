@@ -1,11 +1,14 @@
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { UIObserver, window } from '@kit.ArkUI';
+import { BusinessError } from '@kit.BasicServicesKit';
+
 /**
  UIAbility声明周期
  https://developer.huawei.com/consumer/cn/training/course/slightMooc/C101717497122909477
  */
 export default class EntryAbility extends UIAbility {
+  myWindowStage: window.WindowStage|undefined = undefined
 
   /**
    * 类似android的onNewIntent
@@ -47,6 +50,7 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
+    this.myWindowStage = windowStage
     console.error("执行EntryAbility-onWindowStageCreate")
     // 设置WindowStage的事件订阅（获焦/失焦、可见/不可见）
     try {
@@ -65,6 +69,12 @@ export default class EntryAbility extends UIAbility {
           case window.WindowStageEventType.HIDDEN: // 切到后台
             console.error("执行EntryAbility-切到后台-HIDDEN")
             break;
+          case window.WindowStageEventType.RESUMED: // 前台可交互状态
+            console.error("执行EntryAbility-前台可交互状态-RESUMED")
+            break;
+          case window.WindowStageEventType.PAUSED: // 前台不可交互状态
+            console.error("执行EntryAbility-前台不可交互状态-PAUSED")
+            break;
           default:
             break;
         }
@@ -73,7 +83,7 @@ export default class EntryAbility extends UIAbility {
       console.error("执行EntryAbility-异常："+JSON.stringify(exception))
     }
 
-    windowStage.loadContent('pages/A13_Navigation', (err) => {
+    windowStage.loadContent('pages/A3_component_observer_Page', (err) => {
       if (err.code) {
         hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
         return;
@@ -106,21 +116,35 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageWillDestroy(windowStage: window.WindowStage): void {
+    // 释放通过windowStage对象获取的资源
     console.error("执行EntryAbility-onWindowStageWillDestroy")
   }
 
   onWindowStageDestroy(): void {
+    // 释放UI资源
+    // 例如在onWindowStageDestroy()中注销WindowStage事件订阅（获焦/失焦、切到前台/切到后台、前台可交互/前台不可交互）
     console.error("执行EntryAbility-onWindowStageDestroy")
     // Main window is destroyed, release UI related resources
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
+    try {
+      if (this.myWindowStage) {
+        this.myWindowStage.off('windowStageEvent');
+      }
+    } catch (err) {
+      let code = (err as BusinessError).code;
+      let message = (err as BusinessError).message;
+      hilog.error(0x0000, 'testTag', `Failed to disable the listener for windowStageEvent. Code is ${code}, message is ${message}`);
+    }
   }
 
+  // 申请系统需要的资源，或者重新申请在onBackground()中释放的资源
   onForeground(): void {
     console.error("执行EntryAbility-onForeground")
     // Ability has brought to foreground
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onForeground');
   }
-
+  // 释放UI不可见时无用的资源，或者在此回调中执行较为耗时的操作
+  // 例如状态保存等
   onBackground(): void {
 
     console.error("执行EntryAbility-onBackground")
