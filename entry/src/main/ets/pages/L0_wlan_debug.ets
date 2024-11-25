@@ -10,7 +10,8 @@
 
 
  具体使用：
- 进入：F:\Program Files\Huawei\DevEco Studio\sdk\HarmonyOS-NEXT-DB6\openharmony\toolchains>
+ 进入：F:\Program Files\Huawei\DevEco Studio\sdk\HarmonyOS-NEXT-DB6\openharmony\toolchains
+        或者 F:\Program Files\Huawei\DevEco Studio\sdk\default\openharmony\toolchains
  在地址栏：cmd
   执行：hdc tconn 192.168.6.46:33835
  */
